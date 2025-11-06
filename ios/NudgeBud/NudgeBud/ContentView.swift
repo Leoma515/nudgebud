@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+/// Acts as an integration point for the Onboarding screen that was implemented
+/// for this milestone. As the app evolves this view can be swapped with a more
+/// complete flow coordinator, but for now the focus is on matching the Figma
+/// mock.
+struct ContentView: View {
+    var body: some View {
+        OnboardingScreenTwoView()
 /// Main entry point for the onboarding experience.
 /// This view renders the third screen of the multi-step Onboarding flow.
 struct ContentView: View {
