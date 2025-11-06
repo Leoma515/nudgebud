@@ -69,13 +69,25 @@ struct OnboardingView: View {
     private var copySection: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Why you’ll love NudgeBud")
-                .font(.headline)
+                .font(.headline.weight(.semibold))
                 .foregroundStyle(DesignTokens.Colors.onSurface(for: colorScheme))
 
             VStack(alignment: .leading, spacing: 12) {
-                featureRow(icon: "bell.badge", title: "Thoughtful nudges", detail: "Schedule reminders that respect focus time and avoid overload.")
-                featureRow(icon: "person.2.fill", title: "Shared journeys", detail: "Loop in friends for accountability and see progress at a glance.")
-                featureRow(icon: "sparkle.magnifyingglass", title: "Celebrate growth", detail: "Capture reflections so every tiny win gets the spotlight it deserves.")
+                featureRow(
+                    icon: "bell.badge",
+                    title: "Thoughtful nudges",
+                    detail: "Schedule reminders that respect focus time and avoid overload."
+                )
+                featureRow(
+                    icon: "person.2.fill",
+                    title: "Shared journeys",
+                    detail: "Loop in friends for accountability and see progress at a glance."
+                )
+                featureRow(
+                    icon: "sparkle.magnifyingglass",
+                    title: "Celebrate growth",
+                    detail: "Capture reflections so every tiny win gets the spotlight it deserves."
+                )
             }
         }
     }
@@ -84,44 +96,46 @@ struct OnboardingView: View {
         Button(action: {}) {
             // Using maxWidth ensures the button feels prominent on the first screen.
             Text("Create my first nudge")
-                .font(.headline)
+                .font(.headline.weight(.semibold))
                 .foregroundStyle(DesignTokens.Colors.onPrimary(for: colorScheme))
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
                 .background(
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous)
                         .fill(DesignTokens.Colors.primary(for: colorScheme))
                 )
         }
         .buttonStyle(.plain)
+        .contentShape(RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous))
         .accessibilityIdentifier("onboarding_primary_cta")
     }
 
     private var secondaryAction: some View {
         Button(action: {}) {
             Text("I’ll explore first")
-                .font(.subheadline)
+                .font(.subheadline.weight(.semibold))
                 .foregroundStyle(DesignTokens.Colors.primary(for: colorScheme))
         }
         .buttonStyle(.plain)
         .padding(.top, -12)
     }
 
+    @ViewBuilder
     private func featureRow(icon: String, title: String, detail: String) -> some View {
         HStack(alignment: .top, spacing: 16) {
             // The icon sits on a chip background that adapts between light and dark.
             Image(systemName: icon)
-                .font(.title3)
+                .font(.title3.weight(.semibold))
                 .foregroundStyle(DesignTokens.Colors.primary(for: colorScheme))
                 .padding(12)
                 .background(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous)
                         .fill(DesignTokens.Colors.chipSelectedBackground(for: colorScheme))
                 )
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
-                    .font(.subheadline.bold())
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(DesignTokens.Colors.onSurface(for: colorScheme))
 
                 Text(detail)
