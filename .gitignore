@@ -1,0 +1,22 @@
+# Xcode/Swift
+DerivedData/
+xcuserdata/
+.build/
+.swiftpm/
+*.xcworkspace/xcuserdata
+
+# Node/Next (if you add web tools later)
+node_modules/
+.next/
+.env*
+
+# Keep binaries OUT of git (attach screenshots in PRs)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
+*.mov
+*.mp4
+*.fig
+design/screenshots/
