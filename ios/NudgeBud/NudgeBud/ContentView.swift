@@ -199,7 +199,11 @@ struct ContentView: View {
                 )
         }
         .buttonStyle(.plain)
+    var body: some View {
+        // The onboarding experience now routes into the Home screen, so previews surface the latest primary canvas.
+        HomeView()
     }
+}
 
     /// Pagination dots conveying the user's current position in the onboarding flow.
     private var pagination: some View {
@@ -307,4 +311,12 @@ struct WrapLayout: Layout {
 
         return (CGSize(width: finalWidth, height: totalHeight), positions, sizes)
     }
+#Preview("Light") {
+    ContentView()
+        .environment(\.colorScheme, .light)
+}
+
+#Preview("Dark") {
+    ContentView()
+        .environment(\.colorScheme, .dark)
 }
