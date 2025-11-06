@@ -210,12 +210,12 @@ struct OnboardingScreenThreeView: View {
 
 #Preview("Screen 3 · Light") {
     OnboardingScreenThreeView()
-        .environment(\.colorScheme, .light)
+        .preferredColorScheme(.light)
 }
 
 #Preview("Screen 3 · Dark") {
     OnboardingScreenThreeView()
-        .environment(\.colorScheme, .dark)
+        .preferredColorScheme(.dark)
 }
 
 // MARK: - Supporting Views

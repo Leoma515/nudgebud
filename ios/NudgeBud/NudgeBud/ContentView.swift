@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-/// Acts as the integration point for the onboarding experience that was
-/// implemented for this milestone. As additional navigation is introduced this
-/// view can evolve into a flow coordinator, but for now it simply hosts the
-/// opening screen showcased in the Figma handoff.
+/// Serves as the app's root view by presenting the onboarding flow that greets
+/// new users when NudgeBud launches. Future navigation stacks can replace the
+/// onboarding view without needing to touch the rest of the scene setup.
 struct ContentView: View {
     var body: some View {
         OnboardingView()
@@ -19,10 +18,10 @@ struct ContentView: View {
 
 #Preview("Onboarding · Light") {
     ContentView()
-        .environment(\.colorScheme, .light)
+        .preferredColorScheme(.light)
 }
 
 #Preview("Onboarding · Dark") {
     ContentView()
-        .environment(\.colorScheme, .dark)
+        .preferredColorScheme(.dark)
 }

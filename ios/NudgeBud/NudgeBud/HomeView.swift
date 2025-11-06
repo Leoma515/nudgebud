@@ -349,16 +349,16 @@ private struct VibeTemplate: Identifiable {
 
 #Preview("Home – Light") {
     HomeView()
-        .environment(\.colorScheme, .light)
+        .preferredColorScheme(.light)
 }
 
 #Preview("Home – Dark") {
     HomeView()
-        .environment(\.colorScheme, .dark)
+        .preferredColorScheme(.dark)
 }
 
 #Preview("Home – XL") {
     HomeView()
         .previewLayout(.fixed(width: 1024, height: 768))
-        .environment(\.colorScheme, .light)
+        .preferredColorScheme(.light)
 }

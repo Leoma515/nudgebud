@@ -238,10 +238,10 @@ private struct PrimaryButtonStyle: ButtonStyle {
 
 #Preview("Screen 2 · Light") {
     OnboardingScreenTwoView()
-        .environment(\.colorScheme, .light)
+        .preferredColorScheme(.light)
 }
 
 #Preview("Screen 2 · Dark") {
     OnboardingScreenTwoView()
-        .environment(\.colorScheme, .dark)
+        .preferredColorScheme(.dark)
 }
