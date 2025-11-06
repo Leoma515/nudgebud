@@ -1,0 +1,35 @@
+<svg width="2048" height="1365" viewBox="0 0 2048 1365" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2048" height="1365" fill="#F7F8FA"/>
+  <text x="160" y="180" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" fill="#191C21">Good afternoon, Kai 👋</text>
+  <text x="160" y="260" font-family="Inter, Helvetica, Arial, sans-serif" font-size="48" fill="#191C21" fill-opacity="0.72">Pick a vibe to set the tone for today’s nudges.</text>
+  <rect x="160" y="320" width="900" height="420" rx="32" fill="#FFFFFF" stroke="#D2D6DC" stroke-width="2"/>
+  <text x="200" y="420" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#191C21">Settle into calm focus</text>
+  <text x="200" y="500" font-family="Inter, Helvetica, Arial, sans-serif" font-size="44" fill="#191C21" fill-opacity="0.72">Soft instrumental playlists and mindful breaks keep your pod grounded.</text>
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="600" fill="#5B6EFF">
+    <rect x="200" y="560" width="240" height="84" rx="42" fill="#E9ECFF"/>
+    <text x="232" y="620">Calm focus</text>
+    <rect x="460" y="560" width="320" height="84" rx="42" fill="#E9ECFF"/>
+    <text x="492" y="620">Joyful momentum</text>
+    <rect x="800" y="560" width="300" height="84" rx="42" fill="#E9ECFF"/>
+    <text x="832" y="620">Gentle reset</text>
+  </g>
+  <rect x="160" y="780" width="900" height="140" rx="28" fill="#5B6EFF" fill-opacity="0.12"/>
+  <text x="200" y="868" font-family="Inter, Helvetica, Arial, sans-serif" font-size="44" font-weight="600" fill="#191C21">Open task picker   ⌃</text>
+  <text x="160" y="960" font-family="Inter, Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#191C21">Today’s nudges</text>
+  <rect x="160" y="1030" width="900" height="220" rx="28" fill="#FFFFFF" stroke="#D2D6DC" stroke-width="2"/>
+  <rect x="160" y="1260" width="900" height="220" rx="28" fill="#FFFFFF" stroke="#D2D6DC" stroke-width="2"/>
+  <rect x="1100" y="320" width="788" height="760" rx="32" fill="#FFFFFF" stroke="#D2D6DC" stroke-width="2"/>
+  <text x="1210" y="420" font-family="Inter, Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#191C21">Task picker</text>
+  <text x="1210" y="500" font-family="Inter, Helvetica, Arial, sans-serif" font-size="42" fill="#191C21" fill-opacity="0.72">Quick templates tuned to every vibe.</text>
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" fill="#5B6EFF">
+    <rect x="1210" y="540" width="640" height="180" rx="28" fill="#E9ECFF"/>
+    <text x="1250" y="620" font-weight="700" fill="#191C21">Calm focus</text>
+    <text x="1250" y="660" fill="#191C21" fill-opacity="0.72">Deep work block • Mindful pause • Reflect + share</text>
+    <rect x="1210" y="750" width="640" height="180" rx="28" fill="#E9ECFF"/>
+    <text x="1250" y="830" font-weight="700" fill="#191C21">Joyful momentum</text>
+    <text x="1250" y="870" fill="#191C21" fill-opacity="0.72">Celebrate last win • Send hype DM • Queue playful break</text>
+    <rect x="1210" y="960" width="640" height="180" rx="28" fill="#E9ECFF"/>
+    <text x="1250" y="1040" font-weight="700" fill="#191C21">Gentle reset</text>
+    <text x="1250" y="1080" fill="#191C21" fill-opacity="0.72">Reset workspace • Check-in with body • Plan tiny treat</text>
+  </g>
+</svg>
