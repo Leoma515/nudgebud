@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Presents the marketing-oriented onboarding experience that introduces the
+/// core value propositions before a user signs in or creates a nudge.
 struct OnboardingView: View {
     @Environment(\.colorScheme) private var colorScheme
 
@@ -45,34 +47,8 @@ struct OnboardingView: View {
                 )
 
             VStack(alignment: .leading, spacing: 16) {
-                // Hero illustration approximates the gradient blob from the design.
-                ZStack {
-                    Circle()
-                        .fill(DesignTokens.Colors.primary(for: colorScheme).opacity(0.18))
-                        .frame(width: 160, height: 160)
-                        .offset(x: 40, y: -40)
-
-                    RoundedRectangle(cornerRadius: 120, style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [DesignTokens.Colors.primary(for: colorScheme), DesignTokens.Colors.primary(for: colorScheme).opacity(0.4)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .frame(width: 220, height: 180)
-                        .rotationEffect(.degrees(-12))
-
-                    Image(systemName: "sparkles")
-                        .font(.system(size: 42, weight: .semibold))
-                        .foregroundStyle(DesignTokens.Colors.onPrimary(for: colorScheme))
-                        .padding(20)
-                        .background(
-                            Circle().fill(DesignTokens.Colors.primary(for: colorScheme))
-                        )
-                        .shadow(color: DesignTokens.Colors.primary(for: colorScheme).opacity(0.35), radius: 12, x: 0, y: 10)
-                }
-                .frame(maxWidth: .infinity)
+                OnboardingHeroIllustration()
+                    .frame(maxWidth: .infinity)
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("All your nudges in one calm place")
@@ -159,10 +135,43 @@ struct OnboardingView: View {
 
 #Preview("Onboarding – Light") {
     OnboardingView()
-        .environment(\.colorScheme, .light)
+        .preferredColorScheme(.light)
 }
 
 #Preview("Onboarding – Dark") {
     OnboardingView()
-        .environment(\.colorScheme, .dark)
+        .preferredColorScheme(.dark)
+}
+
+private struct OnboardingHeroIllustration: View {
+    @Environment(\.colorScheme) private var colorScheme
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(DesignTokens.Colors.primary(for: colorScheme).opacity(0.18))
+                .frame(width: 160, height: 160)
+                .offset(x: 40, y: -40)
+
+            RoundedRectangle(cornerRadius: 120, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [DesignTokens.Colors.primary(for: colorScheme), DesignTokens.Colors.primary(for: colorScheme).opacity(0.4)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .frame(width: 220, height: 180)
+                .rotationEffect(.degrees(-12))
+
+            Image(systemName: "sparkles")
+                .font(.system(size: 42, weight: .semibold))
+                .foregroundStyle(DesignTokens.Colors.onPrimary(for: colorScheme))
+                .padding(20)
+                .background(
+                    Circle().fill(DesignTokens.Colors.primary(for: colorScheme))
+                )
+                .shadow(color: DesignTokens.Colors.primary(for: colorScheme).opacity(0.35), radius: 12, x: 0, y: 10)
+        }
+    }
 }
