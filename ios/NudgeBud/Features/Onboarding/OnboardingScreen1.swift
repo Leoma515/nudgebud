@@ -13,6 +13,10 @@ struct OnboardingScreen1: View {
     /// proportionally when fonts scale for accessibility.
     @ScaledMetric(relativeTo: .body) private var verticalSpacing: CGFloat = Tokens.Layout.verticalSpacing
 
+    /// Button padding scales with Dynamic Type to preserve the minimum tap
+    /// target when users enlarge text sizes in accessibility settings.
+    @ScaledMetric(relativeTo: .body) private var buttonVerticalPadding: CGFloat = Tokens.Layout.buttonVerticalPadding
+
     var body: some View {
         ZStack {
             // Gradient background matches the design direction while
@@ -36,11 +40,17 @@ struct OnboardingScreen1: View {
                     VStack(spacing: Tokens.Layout.textSpacing) {
                         Text("One tiny nudge at a time")
                             .font(.system(.largeTitle, design: .rounded).bold())
+                            // Prevents the headline from compressing before the
+                            // supporting copy when Dynamic Type is active.
+                            .layoutPriority(1)
                             .multilineTextAlignment(.center)
                             .foregroundStyle(Tokens.Colors.primaryText)
 
                         Text("Build habits with approachable reminders that meet you where you are.")
                             .font(.system(.body, design: .rounded))
+                            // Replicates the relaxed leading from the spec while
+                            // remaining readable for assistive font sizes.
+                            .lineSpacing(Tokens.Layout.bodyLineSpacing)
                             .multilineTextAlignment(.center)
                             .foregroundStyle(Tokens.Colors.secondaryText)
                             // Wider line limit prevents truncation on smaller
@@ -69,7 +79,7 @@ struct OnboardingScreen1: View {
                             .frame(maxWidth: .infinity)
                             // Ensures at least the 44pt tap target required for
                             // comfortable thumb interaction.
-                            .padding(.vertical, Tokens.Layout.buttonVerticalPadding)
+                            .padding(.vertical, buttonVerticalPadding)
                     }
                     .background(Tokens.Colors.buttonBackground)
                     .foregroundStyle(Tokens.Colors.buttonForeground)
@@ -195,6 +205,7 @@ private enum Tokens {
         static let verticalSpacing: CGFloat = 32
         static let contentSpacing: CGFloat = 24
         static let textSpacing: CGFloat = 12
+        static let bodyLineSpacing: CGFloat = 6
         static let bottomStackSpacing: CGFloat = 20
         static let horizontalPadding: CGFloat = 32
         static let bottomPadding: CGFloat = 40
