@@ -98,8 +98,6 @@ struct OnboardingScreenTwoView: View {
     /// available after onboarding. Keeping the copy short prevents truncation on
     /// smaller accessibility sizes while still echoing the Figma design.
     private var preferencesCard: some View {
-        let cardShadow = DesignTokens.Shadows.card(for: colorScheme)
-
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Focus areas")
@@ -144,10 +142,10 @@ struct OnboardingScreenTwoView: View {
             DesignTokens.Colors.surfaceElevated(for: colorScheme)
         )
         .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous))
-        .shadow(color: cardShadow.color,
-                radius: cardShadow.radius,
-                x: cardShadow.x,
-                y: cardShadow.y)
+        .shadow(color: onboardingCardShadow.color,
+                radius: onboardingCardShadow.radius,
+                x: onboardingCardShadow.x,
+                y: onboardingCardShadow.y)
     }
 
     /// Helper that renders a horizontally wrapping row of pill-shaped chips.
@@ -157,6 +155,16 @@ struct OnboardingScreenTwoView: View {
                 ChipView(title: label, isSelected: label != "Home")
             }
         }
+    }
+}
+
+extension OnboardingScreenTwoView {
+    /// Convenience accessor that surfaces the design token shadow without
+    /// needing local `let` bindings inside the `ViewBuilder` context. Avoiding
+    /// a standalone statement keeps Swift happy about the opaque return type
+    /// inference for `preferencesCard`.
+    private var onboardingCardShadow: (color: Color, radius: CGFloat, x: CGFloat, y: CGFloat) {
+        DesignTokens.Shadows.card(for: colorScheme)
     }
 }
 
