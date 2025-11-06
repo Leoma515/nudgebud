@@ -357,8 +357,7 @@ private struct VibeTemplate: Identifiable {
         .preferredColorScheme(.dark)
 }
 
-#Preview("Home – XL") {
+#Preview("Home – XL", traits: .previewLayout(.fixed(width: 1024, height: 768))) {
     HomeView()
-        .previewLayout(.fixed(width: 1024, height: 768))
         .preferredColorScheme(.light)
 }
