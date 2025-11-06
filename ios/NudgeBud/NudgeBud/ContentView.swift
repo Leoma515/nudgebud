@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        OnboardingView()
+        // The onboarding experience now routes into the Home screen, so previews surface the latest primary canvas.
+        HomeView()
     }
 }
 
