@@ -19,7 +19,7 @@ struct OnboardingView: View {
             DesignTokens.Colors.surface(for: colorScheme)
                 .ignoresSafeArea()
 
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 32) {
                     heroCard
                     copySection
@@ -27,10 +27,10 @@ struct OnboardingView: View {
                     secondaryAction
                 }
                 // Keeping the layout centered and readable on large iPads.
-                .frame(maxWidth: DesignTokens.Layout.maxContentWidth)
+                .frame(maxWidth: DesignTokens.Layout.maxContentWidth, alignment: .center)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 48)
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
         }
     }
