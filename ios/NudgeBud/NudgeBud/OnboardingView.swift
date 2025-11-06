@@ -143,6 +143,12 @@ struct OnboardingView: View {
         .preferredColorScheme(.dark)
 }
 
+#Preview("Onboarding – XL") {
+    OnboardingView()
+        .preferredColorScheme(.light)
+        .environment(\.sizeCategory, .extraLarge)
+}
+
 private struct OnboardingHeroIllustration: View {
     @Environment(\.colorScheme) private var colorScheme
 
