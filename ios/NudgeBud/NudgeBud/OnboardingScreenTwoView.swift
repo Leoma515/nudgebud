@@ -141,7 +141,7 @@ struct OnboardingScreenTwoView: View {
         .padding(24)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
-            DesignTokens.Colors.elevatedSurface(for: colorScheme)
+            DesignTokens.Colors.surfaceElevated(for: colorScheme)
         )
         .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous))
         .shadow(color: cardShadow.color,
