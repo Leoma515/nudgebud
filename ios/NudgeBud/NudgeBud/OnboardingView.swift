@@ -36,33 +36,30 @@ struct OnboardingView: View {
     }
 
     private var heroCard: some View {
-        ZStack {
-            // Elevated surface uses a rounded rectangle to echo the figma card.
+        VStack(alignment: .leading, spacing: 24) {
+            OnboardingHeroIllustration()
+                .frame(maxWidth: .infinity)
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text("All your nudges in one calm place")
+                    .font(.title2.bold())
+                    .foregroundStyle(DesignTokens.Colors.onSurface(for: colorScheme))
+
+                Text("Plan gentle reminders, share progress with your accountability crew, and celebrate wins without the noise.")
+                    .font(.body)
+                    .foregroundStyle(DesignTokens.Colors.onSurface(for: colorScheme).opacity(0.72))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(28)
+        .background(
             RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous)
                 .fill(DesignTokens.Colors.surfaceElevated(for: colorScheme))
-                .overlay(
-                    // A subtle border prevents the card from blending into the background.
-                    RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous)
-                        .stroke(DesignTokens.Colors.outline(for: colorScheme))
-                )
-
-            VStack(alignment: .leading, spacing: 16) {
-                OnboardingHeroIllustration()
-                    .frame(maxWidth: .infinity)
-
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("All your nudges in one calm place")
-                        .font(.title2.bold())
-                        .foregroundStyle(DesignTokens.Colors.onSurface(for: colorScheme))
-
-                    Text("Plan gentle reminders, share progress with your accountability crew, and celebrate wins without the noise.")
-                        .font(.body)
-                        .foregroundStyle(DesignTokens.Colors.onSurface(for: colorScheme).opacity(0.72))
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-            }
-            .padding(28)
-        }
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: DesignTokens.Radii.medium, style: .continuous)
+                .stroke(DesignTokens.Colors.outline(for: colorScheme))
+        )
         .onboardingCardShadow(colorScheme: colorScheme)
     }
 
@@ -171,12 +168,15 @@ private struct OnboardingHeroIllustration: View {
             Circle()
                 .fill(DesignTokens.Colors.primary(for: colorScheme).opacity(0.18))
                 .frame(width: 160, height: 160)
-                .offset(x: 40, y: -40)
+                .offset(x: 32, y: -44)
 
             RoundedRectangle(cornerRadius: 120, style: .continuous)
                 .fill(
                     LinearGradient(
-                        colors: [DesignTokens.Colors.primary(for: colorScheme), DesignTokens.Colors.primary(for: colorScheme).opacity(0.4)],
+                        colors: [
+                            DesignTokens.Colors.primary(for: colorScheme),
+                            DesignTokens.Colors.primary(for: colorScheme).opacity(0.45)
+                        ],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
@@ -184,14 +184,16 @@ private struct OnboardingHeroIllustration: View {
                 .frame(width: 220, height: 180)
                 .rotationEffect(.degrees(-12))
 
-            Image(systemName: "sparkles")
-                .font(.system(size: 42, weight: .semibold))
-                .foregroundStyle(DesignTokens.Colors.onPrimary(for: colorScheme))
-                .padding(20)
-                .background(
-                    Circle().fill(DesignTokens.Colors.primary(for: colorScheme))
+            Circle()
+                .fill(DesignTokens.Colors.primary(for: colorScheme))
+                .frame(width: 96, height: 96)
+                .overlay(
+                    Image(systemName: "sparkles")
+                        .font(.system(size: 44, weight: .semibold))
+                        .foregroundStyle(DesignTokens.Colors.onPrimary(for: colorScheme))
                 )
                 .shadow(color: DesignTokens.Colors.primary(for: colorScheme).opacity(0.35), radius: 12, x: 0, y: 10)
         }
+        .frame(height: 200)
     }
 }
