@@ -157,6 +157,13 @@ struct HomeView: View {
     }
 }
 
+extension HomeView {
+    init() {
+        _isPresentingTaskPicker = State(initialValue: false)
+        _selectedVibe = State(initialValue: .calmFocus)
+    }
+}
+
 private struct TaskCardView: View {
     let task: TaskCard
     let colorScheme: ColorScheme
@@ -262,7 +269,7 @@ private enum VibeOption: String, CaseIterable, Identifiable {
     }
 }
 
-struct TaskPickerSheet: View {
+private struct TaskPickerSheet: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
     @Binding var selectedVibe: VibeOption
@@ -341,6 +348,12 @@ struct TaskPickerSheet: View {
     }
 }
 
+extension TaskPickerSheet {
+    init(selectedVibe: Binding<VibeOption>) {
+        self._selectedVibe = selectedVibe
+    }
+}
+
 private struct VibeTemplate: Identifiable {
     let id = UUID()
     let vibe: VibeOption
@@ -357,7 +370,7 @@ private struct VibeTemplate: Identifiable {
         .preferredColorScheme(.dark)
 }
 
-#Preview("Home – XL", traits: .previewLayout(.fixed(width: 1024, height: 768))) {
+#Preview("Home – XL", traits: .fixedLayout(width: 1024, height: 768)) {
     HomeView()
         .preferredColorScheme(.light)
 }
