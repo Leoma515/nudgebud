@@ -6,3 +6,13 @@ build/
 node_modules/
 .next/
 .env*
+# keep images/binaries out of git; attach in PR instead
+design/screenshots/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
+*.mov
+*.mp4
+*.fig
